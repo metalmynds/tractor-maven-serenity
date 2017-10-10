@@ -28,6 +28,7 @@
         <device.farm.pool.name>Exploratory</device.farm.pool.name>
 
         <!-- Dependencies -->
+        <tractor.maven.plugin.version>1.0-SNAPSHOT</tractor.maven.plugin.version>
         <aws.sdk.version>1.11.205</aws.sdk.version>
         <logback.version>1.0.13</logback.version>
         <junit.version>4.12</junit.version>
@@ -36,6 +37,9 @@
         <commons.lang3.version>3.6</commons.lang3.version>
         <apache.httpcomponents.version>4.4</apache.httpcomponents.version>
         <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+        <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
+        <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
+        <maven.assembly.plugin.version>2.5.4</maven.assembly.plugin.version>
 
         <!-- Build -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -125,7 +129,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
+                <version>${maven.jar.plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -137,7 +141,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
+                <version>${maven.dependency.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -153,7 +157,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.5.4</version>
+                <version>${maven.assembly.plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -173,7 +177,7 @@
             <plugin>
                 <groupId>io.metalmynds</groupId>
                 <artifactId>tractor-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>${tractor.maven.plugin.version}</version>
                 <configuration>
                     <projectName>${device.farm.project.name}</projectName>
                     <uploadApplicationFilename>${test.application.filename}</uploadApplicationFilename>
