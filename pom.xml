@@ -12,35 +12,31 @@
     </description>
     <url>https://github.com/metalmynds/tractor-maven-plugin</url>
     <properties>
+        <!-- Standard Properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Common Test Framework Parameters -->
         <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
-        <serenity.version>1.6.2-SNAPSHOT</serenity.version>
-        <packaged.project.filename>complete_test_framework_package</packaged.project.filename>
-        <device.farm.project.name>JUnitTestNG</device.farm.project.name>
         <test.application.filename>app-debug.apk</test.application.filename>
+
+        <!-- Configures Supported Version of Appium -->
+        <serenity.version>1.6.2-SNAPSHOT</serenity.version>
+
+        <!-- Device Farm Specific -->
+
+        <!-- Project Must Already Exist! -->
+        <device.farm.project.name>JUnitTestNG</device.farm.project.name>
+
+        <!-- Run Timeout before Amazon Kill the Test Harness (Set to 5 for this project) -->
+        <device.farm.run.timeout>5</device.farm.run.timeout>
+
+        <!-- Device Pool Must Already Exist! -->
+        <device.farm.pool.name>Exploratory</device.farm.pool.name>
+
+        <!-- Constant Don't Change -->
+        <test.project.filename>complete_test_framework_package</test.project.filename>
     </properties>
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Maven Repository Switchboard</name>
-            <layout>default</layout>
-            <url>https://repo1.maven.org/maven2</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>bintray-plugins</name>
-            <url>http://jcenter.bintray.com</url>
-        </pluginRepository>
-    </pluginRepositories>
     <dependencies>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -156,7 +152,7 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <finalName>${packaged.project.filename}</finalName>
+                            <finalName>${test.project.filename}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
                                 <descriptor>src/main/assembly/zip.xml</descriptor>
@@ -172,11 +168,35 @@
                 <configuration>
                     <projectName>${device.farm.project.name}</projectName>
                     <uploadApplicationFilename>${test.application.filename}</uploadApplicationFilename>
-                    <uploadTestFilename>${project.build.outputDirectory}/${packaged.project.filename}</uploadTestFilename>
+                    <uploadTestFilename>${project.build.outputDirectory}/${test.project.filename}</uploadTestFilename>
                     <testFrameworkType>${test.framework.type}</testFrameworkType>
-                    <runTimeoutMinutes>5</runTimeoutMinutes>
-                    <devicePoolName>Exploratory</devicePoolName>
+                    <runTimeoutMinutes>${device.farm.run.timeout}</runTimeoutMinutes>
+                    <devicePoolName>${device.farm.pool.name}</devicePoolName>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>remote_execution</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>drive</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <!--<version>${serenity.version}</version>-->
+                <version>1.0.6</version>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
