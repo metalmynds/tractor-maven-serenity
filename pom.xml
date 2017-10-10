@@ -12,31 +12,39 @@
     </description>
     <url>https://github.com/metalmynds/tractor-maven-plugin</url>
     <properties>
-        <!-- Standard Properties -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Common Test Framework Parameters -->
+        <!-- Test Framework Parameters -->
         <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
         <test.application.filename>app-debug.apk</test.application.filename>
         <test.appium.version>1.6.5</test.appium.version>
 
         <!-- Configures Supported Version of Appium -->
         <serenity.version>1.6.2-SNAPSHOT</serenity.version>
-
-        <!-- Device Farm Specific -->
-
         <!-- Project Must Already Exist! -->
         <device.farm.project.name>JUnitTestNG</device.farm.project.name>
-
         <!-- Run Timeout before Amazon Kill the Test Harness (Set to 5 for this project) -->
         <device.farm.run.timeout>5</device.farm.run.timeout>
-
         <!-- Device Pool Must Already Exist! -->
         <device.farm.pool.name>Exploratory</device.farm.pool.name>
 
-        <!-- Constant Don't Change -->
+        <!-- Dependencies -->
+        <aws.sdk.version>1.11.205</aws.sdk.version>
+        <logback.version>1.0.13</logback.version>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.7.7</slf4j.version>
+        <assertj.version>1.7.0</assertj.version>
+        <commons.lang3.version>3.6</commons.lang3.version>
+        <apache.httpcomponents.version>4.4</apache.httpcomponents.version>
+        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+
+        <!-- Build -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <compiler.version>1.8</compiler.version>
+
+        <!-- Constants -->
         <test.project.filename>complete_test_framework_package</test.project.filename>
+
     </properties>
     <dependencies>
         <dependency>
@@ -62,7 +70,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.7</version>
+            <version>${slf4j.version}</version>
         </dependency>
         <!-- logback see src/test/resources/logback.xml
              Very useful for diagnostic output as Device Farm frameworks are executed server side.
@@ -70,37 +78,37 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.0.13</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>1.7.0</version>
+            <version>${assertj.version}</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
-            <version>1.11.205</version>
+            <version>${aws.sdk.version}</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-devicefarm</artifactId>
-            <version>1.11.205</version>
+            <version>${aws.sdk.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.6</version>
+            <version>${commons.lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
-            <version>4.4</version>
+            <version>${apache.httpcomponents.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -108,10 +116,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${compiler.version}</source>
+                    <target>${compiler.version}</target>
                 </configuration>
             </plugin>
             <plugin>
