@@ -182,7 +182,7 @@
                 <configuration>
                     <projectName>${device.farm.project.name}</projectName>
                     <uploadApplicationFilename>${test.application.filename}</uploadApplicationFilename>
-                    <uploadTestFilename>${project.build.outputDirectory}/${test.project.filename}</uploadTestFilename>
+                    <uploadTestFilename>${project.build.directory}/${test.project.filename}.zip</uploadTestFilename>
                     <testFrameworkType>${test.framework.type}</testFrameworkType>
                     <runTimeoutMinutes>${device.farm.run.timeout}</runTimeoutMinutes>
                     <devicePoolName>${device.farm.pool.name}</devicePoolName>
