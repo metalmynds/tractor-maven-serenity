@@ -19,6 +19,7 @@
         <!-- Common Test Framework Parameters -->
         <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
         <test.application.filename>app-debug.apk</test.application.filename>
+        <test.appium.version>1.6.5</test.appium.version>
 
         <!-- Configures Supported Version of Appium -->
         <serenity.version>1.6.2-SNAPSHOT</serenity.version>
@@ -172,6 +173,7 @@
                     <testFrameworkType>${test.framework.type}</testFrameworkType>
                     <runTimeoutMinutes>${device.farm.run.timeout}</runTimeoutMinutes>
                     <devicePoolName>${device.farm.pool.name}</devicePoolName>
+                    <appiumVersion>${test.appium.version}</appiumVersion>
                 </configuration>
                 <executions>
                     <execution>
