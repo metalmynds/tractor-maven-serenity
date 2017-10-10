@@ -40,6 +40,7 @@
         <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
         <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
         <maven.assembly.plugin.version>2.5.4</maven.assembly.plugin.version>
+        <serenity.maven.plugin.version>1.0.6</serenity.maven.plugin.version>
 
         <!-- Build -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -200,8 +201,7 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <!--<version>${serenity.version}</version>-->
-                <version>1.0.6</version>
+                <version>${serenity.maven.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
