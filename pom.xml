@@ -10,19 +10,8 @@
     <description>This is an example project for running Serenity BDD tests on the Amazon Device Farm using Tractor
         Plugin.
     </description>
-    <url>https://github.com/metalmynds/tractor-maven-plugin</url>
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <scm>
-        <url>https://github.com/metalmynds/tractor-maven-plugin.git</url>
-    </scm>
+    <url>https://github.com/metalmynds/tractor-maven-serenity</url>
     <properties>
-
         <!-- Test Framework Parameters -->
         <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
         <test.application.filename>app-debug.apk</test.application.filename>
