@@ -14,7 +14,22 @@
     <properties>
 
         <!-- Test Framework  -->
-        <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type> <!-- NOTE: Supported Test Types: BUILTIN_FUZZ,BUILTIN_EXPLORER,APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON,CALABASH,INSTRUMENTATION,UIAUTOMATION,UIAUTOMATOR, XCTEST, XCTEST_UI -->
+        <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
+        <!-- NOTE: Supported Test Types:
+            BUILTIN_FUZZ
+            BUILTIN_EXPLORER
+            APPIUM_JAVA_JUNIT
+            APPIUM_JAVA_TESTNG
+            APPIUM_PYTHON
+            APPIUM_WEB_JAVA_JUNIT
+            APPIUM_WEB_JAVA_TESTNG
+            APPIUM_WEB_PYTHON, CALABASH,
+            INSTRUMENTATION
+            UIAUTOMATION
+            UIAUTOMATOR
+            XCTEST
+            XCTEST_UI
+        -->
 
         <!-- Android or iOS application package to upload -->
         <test.application.filename>app-debug.apk</test.application.filename>
