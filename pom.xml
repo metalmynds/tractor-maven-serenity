@@ -12,21 +12,27 @@
     </description>
     <url>https://github.com/metalmynds/tractor-maven-serenity</url>
     <properties>
-        <!-- Test Framework Parameters -->
-        <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
+
+        <!-- Test Framework  -->
+        <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type> <!-- NOTE: Supported Test Types: BUILTIN_FUZZ,BUILTIN_EXPLORER,APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON,CALABASH,INSTRUMENTATION,UIAUTOMATION,UIAUTOMATOR, XCTEST, XCTEST_UI -->
+
+        <!-- Android or iOS application package to upload -->
         <test.application.filename>app-debug.apk</test.application.filename>
-        <test.appium.version>1.6.5</test.appium.version>
 
         <!-- Configures Supported Version of Appium -->
-        <serenity.version>1.6.2-SNAPSHOT</serenity.version>
+        <test.appium.version>1.6.5</test.appium.version>
+
         <!-- Project Must Already Exist! -->
         <device.farm.project.name>JUnitTestNG</device.farm.project.name>
+
         <!-- Run Timeout before Amazon Kill the Test Harness (Set to 5 for this project) -->
         <device.farm.run.timeout>5</device.farm.run.timeout>
+
         <!-- Device Pool Must Already Exist! -->
         <device.farm.pool.name>Exploratory</device.farm.pool.name>
 
         <!-- Dependencies -->
+        <serenity.version>1.6.2-SNAPSHOT</serenity.version>
         <tractor.maven.plugin.version>1.0-SNAPSHOT</tractor.maven.plugin.version>
         <aws.sdk.version>1.11.205</aws.sdk.version>
         <logback.version>1.0.13</logback.version>
