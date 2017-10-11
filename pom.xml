@@ -23,7 +23,8 @@
             APPIUM_PYTHON
             APPIUM_WEB_JAVA_JUNIT
             APPIUM_WEB_JAVA_TESTNG
-            APPIUM_WEB_PYTHON, CALABASH,
+            APPIUM_WEB_PYTHON
+            CALABASH
             INSTRUMENTATION
             UIAUTOMATION
             UIAUTOMATOR
