@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.metalmynds</groupId>
-    <artifactId>tractor-maven-serenity</artifactId>
+    <artifactId>example-devicefarm-serenity-project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Serenity BDD on Amazon Device Farm Example Project</name>
