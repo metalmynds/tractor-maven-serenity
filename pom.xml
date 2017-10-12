@@ -197,7 +197,7 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>io.metalmynds</groupId>
+                <groupId>io.metalmynds.tractor</groupId>
                 <artifactId>tractor-maven-plugin</artifactId>
                 <version>${tractor.maven.plugin.version}</version>
                 <configuration>
