@@ -48,7 +48,7 @@
         <device.farm.pool.name>Exploratory</device.farm.pool.name>
 
         <!-- Dependencies -->
-        <serenity.version>1.6.2-SNAPSHOT</serenity.version>
+        <serenity.version>1.6.4-rc.2</serenity.version>
         <tractor.maven.plugin.version>1.0-SNAPSHOT</tractor.maven.plugin.version>
         <aws.sdk.version>1.11.205</aws.sdk.version>
         <logback.version>1.0.13</logback.version>
