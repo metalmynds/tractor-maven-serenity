@@ -1,4 +1,4 @@
-# Tractor-Maven-Serenity ![Build Status](https://travis-ci.org/metalmynds/tractor-maven-serenity.svg?branch=master)
+# Tractor-Maven-Serenity
 This is an example project for running Serenity BDD tests on the Amazon Device Farm using Tractor Plugin.
 
 The best place to start is to look at the pom.xml its based upon the Amazon prescribed approach.
