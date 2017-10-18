@@ -1,10 +1,11 @@
 package io.metalmynds.example.features.security;
 
-import io.metalmynds.example.features.questions.TheWelcomeMessage;
-import io.metalmynds.example.features.tasks.LoginToApplication;
-import io.metalmynds.example.features.tasks.OpenTheApplication;
+import io.metalmynds.example.questions.TheWelcomeMessage;
+import io.metalmynds.example.tasks.LoginToApplication;
+import io.metalmynds.example.tasks.OpenTheApplication;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Screenshots;
@@ -43,7 +44,7 @@ public class LoginStory {
     	
         when(juliet).attemptsTo(LoginToApplication.usingCredentials("Juliet.Bravo", "Password123!"));
         
-        then(juliet).should(eventually(seeThat(TheWelcomeMessage.text(), containsString("Hello User: Juliet Bravo"))));
+        then(juliet).should(eventually(GivenWhenThen.seeThat(TheWelcomeMessage.text(), containsString("Hello User: Juliet Bravo"))));
         
     }
     
