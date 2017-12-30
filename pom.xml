@@ -14,7 +14,7 @@
     <properties>
 
         <!-- Test Framework  -->
-        <test.framework.type>APPIUM_JAVA_TESTNG</test.framework.type>
+        <test.framework.type>APPIUM_JAVA_JUNIT</test.framework.type>
         <!-- NOTE: Supported Test Types:
             BUILTIN_FUZZ
             BUILTIN_EXPLORER
