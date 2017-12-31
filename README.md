@@ -35,7 +35,9 @@ to set the device name in the Serenity configuration file.
 
 To remotely execute the AWS CLI must be installed [Linux](https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-linux.html) [Windows](https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-windows.html) [macOS](https://docs.aws.amazon.com/cli/latest/userguide/cli-install-macos.html).
 
-To setup authentication see [Setting Up AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/setting-up.html).
+To setup device farm see [Setting Up AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/setting-up.html).
+		
+To setup credentials see [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
 		
 ## Configuration
 
