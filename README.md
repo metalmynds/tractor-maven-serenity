@@ -37,7 +37,7 @@ To remotely execute the AWS CLI must be installed [Linux](https://docs.aws.amazo
 
 To setup authentication see [Setting Up AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/setting-up.html).
 		
-##Configuration
+## Configuration
 
 The
 **src/test/resources**
