@@ -1,302 +1,301 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.metalmynds.tractor</groupId>
-    <artifactId>example-devicefarm-serenity-project</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>Serenity BDD on Amazon Device Farm Example Project</name>
-    <description>This is an example project for running Serenity BDD tests on the Amazon Device Farm using Tractor
+	<groupId>io.metalmynds.tractor</groupId>
+	<artifactId>example-devicefarm-serenity-project</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Serenity BDD on Amazon Device Farm Example Project</name>
+	<description>This is an example project for running Serenity BDD tests on the Amazon Device Farm using Tractor
         Plugin.
     </description>
-    <url>https://github.com/metalmynds/tractor-maven-serenity</url>
-    <properties>
+	<url>https://github.com/metalmynds/tractor-maven-serenity</url>
+	<properties>
 
-        <!-- Test Framework  -->
-        <test.framework.type>APPIUM_JAVA_JUNIT</test.framework.type>
-        <!-- NOTE: Supported Test Types:
-            BUILTIN_FUZZ
-            BUILTIN_EXPLORER
-            APPIUM_JAVA_JUNIT
-            APPIUM_JAVA_TESTNG
-            APPIUM_PYTHON
-            APPIUM_WEB_JAVA_JUNIT
-            APPIUM_WEB_JAVA_TESTNG
-            APPIUM_WEB_PYTHON
-            CALABASH
-            INSTRUMENTATION
-            UIAUTOMATION
-            UIAUTOMATOR
-            XCTEST
-            XCTEST_UI
-        -->
+		<!-- Test Framework -->
+		<test.framework.type>APPIUM_JAVA_JUNIT</test.framework.type>
+		<!-- NOTE: Supported Test Types: BUILTIN_FUZZ BUILTIN_EXPLORER APPIUM_JAVA_JUNIT 
+			APPIUM_JAVA_TESTNG APPIUM_PYTHON APPIUM_WEB_JAVA_JUNIT APPIUM_WEB_JAVA_TESTNG 
+			APPIUM_WEB_PYTHON CALABASH INSTRUMENTATION UIAUTOMATION UIAUTOMATOR XCTEST 
+			XCTEST_UI -->
 
-        <!-- Android or iOS application package to upload -->
-        <test.application.filename>app-debug.apk</test.application.filename>
+		<!-- Android or iOS application package to upload -->
+		<test.application.filename>app-debug.apk</test.application.filename>
 
-        <!-- Configures Supported Version of Appium -->
-        <test.appium.version>1.6.5</test.appium.version>
+		<!-- Configures Supported Version of Appium -->
+		<test.appium.version>1.6.5</test.appium.version>
 
-        <!-- Project Must Already Exist! -->
-        <device.farm.project.name>JUnitTestNG</device.farm.project.name>
+		<!-- Project Must Already Exist! -->
+		<device.farm.project.name>JUnitTestNG</device.farm.project.name>
 
-        <!-- Run Timeout before Amazon Kill the Test Harness (Set to 5 for this project) -->
-        <device.farm.run.timeout>5</device.farm.run.timeout>
+		<!-- Run Timeout before Amazon Kill the Test Harness (Set to 5 for this 
+			project) -->
+		<device.farm.run.timeout>5</device.farm.run.timeout>
 
-        <!-- Device Pool Must Already Exist! -->
-        <device.farm.pool.name>Exploratory</device.farm.pool.name>
+		<!-- Device Pool Must Already Exist! -->
+		<device.farm.pool.name>Exploratory</device.farm.pool.name>
 
-        <!-- Dependencies -->
-        <serenity.version>1.6.6</serenity.version>
-        <tractor.maven.plugin.version>1.0-SNAPSHOT</tractor.maven.plugin.version>
-        <aws.sdk.version>1.11.205</aws.sdk.version>
-        <logback.version>1.0.13</logback.version>
-        <junit.version>4.12</junit.version>
-        <slf4j.version>1.7.7</slf4j.version>
-        <assertj.version>1.7.0</assertj.version>
-        <commons.lang3.version>3.6</commons.lang3.version>
-        <apache.httpcomponents.version>4.4</apache.httpcomponents.version>
-        <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
-        <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
-        <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
-        <maven.assembly.plugin.version>2.5.4</maven.assembly.plugin.version>
-        <serenity.maven.plugin.version>1.0.6</serenity.maven.plugin.version>
-        <maven.failsafe.plugin.version>2.20.1</maven.failsafe.plugin.version>
+		<!-- Dependencies -->
+		<serenity.version>1.6.6</serenity.version>
+		<tractor.maven.plugin.version>1.0-SNAPSHOT</tractor.maven.plugin.version>
+		<aws.sdk.version>1.11.205</aws.sdk.version>
+		<logback.version>1.0.13</logback.version>
+		<junit.version>4.12</junit.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<assertj.version>1.7.0</assertj.version>
+		<commons.lang3.version>3.6</commons.lang3.version>
+		<apache.httpcomponents.version>4.4</apache.httpcomponents.version>
+		<maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
+		<maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
+		<maven.assembly.plugin.version>2.5.4</maven.assembly.plugin.version>
+		<serenity.maven.plugin.version>1.0.6</serenity.maven.plugin.version>
+		<maven.failsafe.plugin.version>2.20.1</maven.failsafe.plugin.version>
 
-        <!-- Build -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <compiler.version>1.8</compiler.version>
+		<!-- Build -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<compiler.version>1.8</compiler.version>
 
-        <!-- Constants -->
-        <test.project.filename>complete_test_framework_package</test.project.filename>
+		<!-- Constants -->
+		<test.project.filename>complete_test_framework_package</test.project.filename>
 
-    </properties>
+	</properties>
 
-    <!-- Snapshot Repositories -->
+	<!-- Snapshot Repositories -->
 
-    <!-- Temporary ! :) -->
+	<!-- Temporary ! :) -->
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>oss.sonatype.org-snapshot</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
-    <!-- Temporary ! :) -->
+	<!-- Temporary ! :) -->
 
-    <repositories>
-        <repository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+			<id>oss.sonatype.org-snapshot</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-screenplay</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-screenplay-webdriver</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-junit</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <!-- logback see src/test/resources/logback.xml
-             Very useful for diagnostic output as Device Farm frameworks are executed server side.
-         -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-devicefarm</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>${apache.httpcomponents.version}</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
-                <configuration>
-                    <source>${compiler.version}</source>
-                    <target>${compiler.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven.jar.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>${maven.dependency.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven.assembly.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <finalName>${test.project.filename}</finalName>
-                            <appendAssemblyId>false</appendAssemblyId>
-                            <descriptors>
-                                <descriptor>src/main/assembly/zip.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--<plugin>-->
-                <!--<groupId>io.metalmynds.tractor</groupId>-->
-                <!--<artifactId>tractor-maven-plugin</artifactId>-->
-                <!--<version>${tractor.maven.plugin.version}</version>-->
-                <!--<configuration>-->
-                    <!--<projectName>${device.farm.project.name}</projectName>-->
-                    <!--<uploadApplicationFilename>${test.application.filename}</uploadApplicationFilename>-->
-                    <!--<uploadTestFilename>${project.build.directory}/${test.project.filename}.zip</uploadTestFilename>-->
-                    <!--<testFrameworkType>${test.framework.type}</testFrameworkType>-->
-                    <!--<runTimeoutMinutes>${device.farm.run.timeout}</runTimeoutMinutes>-->
-                    <!--<devicePoolName>${device.farm.pool.name}</devicePoolName>-->
-                    <!--<appiumVersion>${test.appium.version}</appiumVersion>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>remote_execution</id>-->
-                        <!--<phase>integration-test</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>drive</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven.failsafe.plugin.version}</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/Test*.java</include>
-                        <include>**/When*.java</include>
-                        <include>**/*Story.java</include>
-                    </includes>
-                    <argLine>-Xmx256m</argLine>
-                    <systemPropertyVariables>
-                    </systemPropertyVariables>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--<plugin>-->
-                <!--<groupId>net.serenity-bdd.maven.plugins</groupId>-->
-                <!--<artifactId>serenity-maven-plugin</artifactId>-->
-                <!--<version>${serenity.maven.plugin.version}</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>serenity-reports</id>-->
-                        <!--<phase>post-integration-test</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>aggregate</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-        </plugins>
-    </build>
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>local</id>-->
-            <!--<build>-->
-            <!--</build>-->
-        <!--</profile>-->
-    <!--</profiles>-->
+	<dependencies>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-core</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-screenplay</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-screenplay-webdriver</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-junit</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- logback see src/test/resources/logback.xml Very useful for diagnostic 
+			output as Device Farm frameworks are executed server side. -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>${aws.sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-devicefarm</artifactId>
+			<version>${aws.sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${apache.httpcomponents.version}</version>
+		</dependency>
+	</dependencies>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>${maven.failsafe.plugin.version}</version>
+						<configuration>
+							<includes>
+								<include>**/*Test.java</include>
+								<include>**/Test*.java</include>
+								<include>**/When*.java</include>
+								<include>**/*Story.java</include>
+							</includes>
+							<argLine>-Xmx256m</argLine>
+							<systemPropertyVariables>
+							</systemPropertyVariables>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>net.serenity-bdd.maven.plugins</groupId>
+						<artifactId>serenity-maven-plugin</artifactId>
+						<version>${serenity.maven.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>serenity-reports</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>aggregate</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>remote</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>${maven.jar.plugin.version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>test-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>${maven.dependency.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>${maven.assembly.plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<finalName>${test.project.filename}</finalName>
+									<appendAssemblyId>false</appendAssemblyId>
+									<descriptors>
+										<descriptor>src/main/assembly/zip.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>io.metalmynds.tractor</groupId>
+						<artifactId>tractor-maven-plugin</artifactId>
+						<version>${tractor.maven.plugin.version}</version>
+						<configuration>
+							<projectName>${device.farm.project.name}</projectName>
+							<uploadApplicationFilename>${test.application.filename}</uploadApplicationFilename>
+							<uploadTestFilename>${project.build.directory}/${test.project.filename}.zip</uploadTestFilename>
+							<testFrameworkType>${test.framework.type}</testFrameworkType>
+							<runTimeoutMinutes>${device.farm.run.timeout}</runTimeoutMinutes>
+							<devicePoolName>${device.farm.pool.name}</devicePoolName>
+							<appiumVersion>${test.appium.version}</appiumVersion>
+						</configuration>
+						<executions>
+							<execution>
+								<id>remote_execution</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>drive</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${compiler.version}</source>
+					<target>${compiler.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
