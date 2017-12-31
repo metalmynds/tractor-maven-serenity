@@ -9,9 +9,13 @@ As the Tractor Plugin takes care of copying the test framework package, client a
 
 Test Results are automatically copied back to the local machine including logs, screenshots, movies and custom locations.
 
-###Local
+## Local
 	
-#####Default Device Name
+Specify Device Name
+	
+	mvn integration-test -P local -Dappium.deviceName="MyDeviceName"
+
+Configured Device Name
 	
 	mvn integration-test -P local
 
@@ -24,10 +28,8 @@ See
 **Configuration**
 to set the device name in the Serenity configuration file.
 
-#####Specify Device Name
-	
-	mvn integration-test -P local -Dappium.deviceName="MyDeviceName"
-###Remote
+
+## Remote
 
 	mvn integration-test -P remote
 
